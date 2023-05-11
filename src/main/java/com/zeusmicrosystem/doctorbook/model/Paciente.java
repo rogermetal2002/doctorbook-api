@@ -18,6 +18,8 @@ public class Paciente extends Usuario {
     private String agenda;
     private String descricaoAgenda;
 
+
+
     public Paciente(String nome, String cpf, String telefone, String endereco, String nascimento, String genero, String evolucao, String agenda, String descricaoAgenda) {
         super(nome, cpf, telefone, endereco, nascimento, genero);
         this.evolucao = evolucao;

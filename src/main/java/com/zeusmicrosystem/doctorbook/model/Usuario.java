@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 
 @Data
@@ -18,5 +19,7 @@ public abstract class Usuario {
     private String endereco;
     private String nascimento;
     private String genero;
+
+
 
 }
