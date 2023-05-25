@@ -29,8 +29,15 @@ public class ArquivoService {
         Optional<Arquivo> arquivo = arquivoRepository.findById(id);
         return arquivo.orElse(null);
     }
-    public Arquivo getPerfil(Integer pacienteId){
+    public byte[] getPerfil(Integer pacienteId){
        List<Arquivo> arquivos = arquivoRepository.findByIdUsuarioAndPerfil(pacienteId, true);
-       return arquivos.get(0);
+       return arquivos.get(0).getDados();
+    }
+    public Arquivo alterarPerfil(Arquivo arquivoNovo){
+        List<Arquivo> arquivos = arquivoRepository.findByIdUsuarioAndPerfil(arquivoNovo.getIdUsuario(), true);
+        Arquivo arquivo = arquivos.get(0);
+        arquivo.setDados(arquivoNovo.getDados());
+        arquivo.setNome(arquivoNovo.getNome());
+        return arquivoRepository.save(arquivo);
     }
 }
